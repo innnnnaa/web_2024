@@ -1,0 +1,110 @@
+{
+  "testName": "Sports Knowledge Quiz",
+  "questions": [
+    {
+      "question": "Which athlete holds the record for the most Olympic gold medals?",
+      "answers": [
+        {
+          "answer": "Michael Phelps",
+          "isCorrect": true
+        },
+        {
+          "answer": "Usain Bolt",
+          "isCorrect": false
+        },
+        {
+          "answer": "Serena Williams",
+          "isCorrect": false
+        },
+        {
+          "answer": "Roger Federer",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "What is the diameter of a basketball hoop in inches?",
+      "answers": [
+        {
+          "answer": "16 inches",
+          "isCorrect": false
+        },
+        {
+          "answer": "18 inches",
+          "isCorrect": false
+        },
+        {
+          "answer": "20 inches",
+          "isCorrect": true
+        },
+        {
+          "answer": "22 inches",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which country won the FIFA World Cup in 2018?",
+      "answers": [
+        {
+          "answer": "Brazil",
+          "isCorrect": false
+        },
+        {
+          "answer": "France",
+          "isCorrect": true
+        },
+        {
+          "answer": "Germany",
+          "isCorrect": false
+        },
+        {
+          "answer": "Argentina",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "In which year did the first modern Olympic Games take place?",
+      "answers": [
+        {
+          "answer": "1896",
+          "isCorrect": true
+        },
+        {
+          "answer": "1900",
+          "isCorrect": false
+        },
+        {
+          "answer": "1912",
+          "isCorrect": false
+        },
+        {
+          "answer": "1924",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Which sport uses the term 'birdie'?",
+      "answers": [
+        {
+          "answer": "Tennis",
+          "isCorrect": false
+        },
+        {
+          "answer": "Golf",
+          "isCorrect": true
+        },
+        {
+          "answer": "Cricket",
+          "isCorrect": false
+        },
+        {
+          "answer": "Badminton",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+import numpy as np
+from itertools import zip_longest
+
+def get_data():
+    def valid1(a2, i=1):
+        try:
+            a2 = [float(x) * i for x in a2]
+        except:
+            print('Введіть коректно, наприклад: 1 2 3')
+            a2 = []
+        return a2
+
+    def valid2(a2, z1):
+        try:
+            a2 = [float(x) * y for x, y in zip_longest(a2, z1, fillvalue=1)]
+        except:
+            print('Введіть коректно, наприклад: 1 2 3')
+            a2 = []
+        return a2
+
+    i1 = int(input('Кількість змінних в цільовій функції: '))
+    i2 = int(input('Кількість обмежень: '))
+
+    a = np.zeros(shape=(i2 + 1, i1+i2))
+    k = 0
+    z1 = []
+
+    while len(z1) != i2:
+        a1 = input('Введіть знаки, якщо <=(1), якщо >=(-1): ')
+        a2 = a1.split(' ')
+        z1 = valid1(a2)
+
+    a2 = []
+
+    while len(a2) != i1:
+        a1 = input('Введіть коєфіціенти цільової функції: ')
+        a2 = a1.split(' ')
+        a2 = valid1(a2, -1)
+
+    for i in range(i2):
+        a2.append(0.0)
+
+    a[i2] = a2
+    a2 = []
+
+    for j in range(i2):
+        while len(a2) != i1:
+            a1 = input('Введіть коєфіціенти ' + str(j + 1) + ' обмеження: ')
+            a2 = a1.split(' ')
+            a2 = valid1(a2, int(z1[j]))
+
+        for i in range(i2):
+            if j == k and i == k:
+                a2.append(1.0)
+                k += 1
+            else:
+                a2.append(0.0)
+        a[j] = a2
+
+    a2 = []
+
+    while len(a2) != i2:
+        a1 = input('Введіть вектор b: ')
+        a2 = a1.split(' ')
+        a2 = valid2(a2, z1)
+
+    a2.append(0.0)
+    b = a2
+    return a, b, i1, i2
+
+def solve(a, b, i1, j1):
+    a1 = np.zeros(shape=(len(a), len(a[0])))
+
+    for i in range(len(a[0])):
+        a1[j1, i] = a[j1, i] / a[j1, i1]
+
+    for i in range(len(a)):
+        for j in range(len(a[0])):
+            if i == j1 or j == i1:
+                pass
+            else:
+                pass
+                a1[i, j] = a[i, j] - (a[i, i1] * a[j1, j] / a[j1, i1])
+
+    for i in range(len(b)):
+        if i == j1:
+            pass
+        else:
+            b[i] = b[i] - (b[j1] * a[i, i1] / a[j1, i1])
+
+    b[j1] = b[j1]/a[j1, i1]
+    return a1, i1, j1
+
+def solve1(a, b, val):
+    def column1(b, b1, a, i1):
+        b2 = 100000
+
+        for i in range(len(b) - 1):
+            if a[i, i1] <= 0:
+                b1[i] = 999.999
+            else:
+                b1[i] = b[i] / a[i, i1]
+                if b1[i] < b2:
+                    b2 = b1[i]
+                    j1 = i
+
+        return j1
+
+    def row1(a):
+        c1 = 100000
+
+        for i in range(len(a[0])):
+            if a[-1, i] < c1:
+                c1 = a[- 1, i]
+                i1 = i
+
+        return i1
+
+    b1 = np.zeros(shape=(len(b)))
+    i1 = row1(a)
+    j1 = column1(b, b1, a, i1)
+
+    result(a, b, b1, val)
+    a, i1, j1 = solve(a, b, i1, j1)
+
+    return a, i1, j1
+
+def simplex(a, b, i11, i2):
+    val2 = []
+
+    for i in range(i2):
+        val2.append('x' + str(i11 + i + 1))
+
+    val2.append('  ')
+    a1 = 1
+
+    while a1 != 0:
+        a1 = 0
+
+        for x in a[-1]:
+            if x < 0:
+                a1 += 1
+            else:
+                pass
+
+        if a1 > 0:
+            a, i1, j1 = solve1(a, b, val2)
+            val2[j1] = 'x' + str(i1+1)
+
+    a, i1, j1 = solve1(a, b, val2)
+    return val2, a
+
+def fresult(b, i11, val2):
+    for i in range(len(b)):
+        for j in range(i11):
+            if 'x'+str(j + 1) == val2[i]:
+                print(val2[i] + ' = ' + str(round(b[i], 1)) + '   ')
+    print(' F(x) = ' + str(round(b[-1], 1)))
+
+def result(a, b, b1, val):
+    for i in range(len(a)):
+        if b[i] < 0:
+            print(val[i] + ' ' + str(round(b[i], 2)) + ' |', end='')
+        else:
+            print(val[i] + '  ' + str(round(b[i], 2)) + ' |', end='')
+
+        for j in range(len(a[0])):
+            if a[i][j] < 0:
+                print(str(round((a[i][j]), 2)) + '   ', end='')
+            elif a[i][j] > 0:
+                print(' ' + str(round((a[i][j]), 2)) + '   ', end='')
+            else:
+                print(' ' + str(abs(round((a[i][j]), 2))) + '   ', end='')
+
+        print('| ' + str(round(b1[i], 2)) + '\n')
+
+    print('\n')
+
+A, B, i_1, i_2 = get_data()
+val5, A = simplex(A, B, i_1, i_2)
+fresult(B, i_1, val5)

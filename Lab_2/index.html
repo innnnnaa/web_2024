@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportSphere</title>
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+<header>
+  <h1><img src="images/lnu.svg" alt="Lnu">SportSphere</h1>
+  <nav>
+    <ul class="navbar">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#survey">Survey</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#quiz-block">Quiz</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#dino">Game</a></li>
+    </ul>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+</header>
+
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <h2>Welcome to Our Sport Community</h2>
+    <p>Join us for exciting games and events!</p>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="feature">
+    <h3>Get Active</h3>
+    <p>Participate in various sports activities</p>
+  </div>
+  <div class="feature">
+    <h3>Meet New Friends</h3>
+    <p>Connect with fellow sports enthusiasts</p>
+  </div>
+  <div class="feature">
+    <h3>Have Fun</h3>
+    <p>Enjoy the thrill of competition</p>
+  </div>
+</section>
+
+<section id="about" class="about-us">
+  <div class="about-content">
+    <h2>About Us</h2>
+    <p>Welcome to our sport community! We are passionate about promoting an active lifestyle and fostering a sense of camaraderie among sports enthusiasts. Our mission is to provide a platform where people of all ages and backgrounds can come together to enjoy various sports activities, make new friends, and have fun.</p>
+    <p>With a diverse range of sports events and activities scheduled throughout the year, there's something for everyone to enjoy. Whether you're a seasoned athlete or just looking to try something new, we welcome you to join us and be a part of our vibrant community.</p>
+  </div>
+</section>
+
+<section id="gallery" class="gallery">
+  <h2>Photo Gallery</h2>
+  <div class="gallery-images">
+    <img src="images/g_1.png" alt="Gallery Image">
+    <img src="images/g_2.png" alt="Gallery Image">
+    <img src="images/g_3.png" alt="Gallery Image">
+    <img src="images/g_4.png" alt="Gallery Image">
+  </div>
+</section>
+
+<section id="survey">
+  <form id="surveyForm">
+    <label for="favoriteSport">What is your favorite sport?</label><br>
+    <input type="text" id="favoriteSport" name="favoriteSport"><br><br>
+
+    <label for="levelOfActivity">How often do you engage in sports activities per week?</label><br>
+    <input type="number" id="levelOfActivity" name="levelOfActivity" min="1" max="7"><br><br>
+
+    <label>Which sports do you enjoy watching? (Select all that apply)</label><br>
+    <input type="checkbox" id="watchingFootball" name="watchingSports[]" value="Football">
+    <label for="watchingFootball">Football</label><br>
+    <input type="checkbox" id="watchingBasketball" name="watchingSports[]" value="Basketball">
+    <label for="watchingBasketball">Basketball</label><br>
+    <input type="checkbox" id="watchingTennis" name="watchingSports[]" value="Tennis">
+    <label for="watchingTennis">Tennis</label><br>
+
+    <label for="timeSpentOnSports">How many hours per week do you spend on sports?</label><br>
+    <input type="number" id="timeSpentOnSports" name="timeSpentOnSports" min="1" max="168"><br><br>
+
+    <label>Do you attend sports events frequently?</label><br>
+    <input type="radio" id="yesFrequent" name="frequentSportEvents" value="Yes">
+    <label for="yesFrequent">Yes</label><br>
+    <input type="radio" id="noFrequent" name="frequentSportEvents" value="No">
+    <label for="noFrequent">No</label><br><br>
+
+    <label for="sportsInterestLevel">How interested are you in sports on a scale of 1 to 10?</label><br>
+    <input type="range" id="sportsInterestLevel" name="sportsInterestLevel" min="1" max="10"><br><br>
+
+    <label for="preferredSportTime">What time of the day do you prefer to engage in sports?</label><br>
+    <input type="time" id="preferredSportTime" name="preferredSportTime"><br><br>
+
+    <label for="additionalComments">Any additional comments or suggestions?</label><br>
+    <textarea id="additionalComments" name="additionalComments" rows="4"></textarea><br><br>
+
+    <label for="fitnessGoals">What are your fitness goals?</label><br>
+    <input type="text" id="fitnessGoals" name="fitnessGoals"><br><br>
+
+    <label for="motivationSource">Where do you draw your motivation for sports from?</label><br>
+    <input type="text" id="motivationSource" name="motivationSource"><br><br>
+
+    <input type="submit" value="Submit">
+
+    <div id="surveyResults"></div>
+  </form>
+</section>
+
+<section id="schedule" class="schedule">
+  <h2>Event Schedule</h2>
+  <table>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+    <tr>
+      <td>Football Match</td>
+      <td>March 5, 2024</td>
+      <td>2:00 PM</td>
+    </tr>
+    <tr>
+      <td>Basketball Game</td>
+      <td>March 8, 2024</td>
+      <td>4:30 PM</td>
+    </tr>
+    <tr>
+      <td>Tennis Tournament</td>
+      <td>March 12, 2024</td>
+      <td>10:00 AM</td>
+    </tr>
+  </table>
+</section>
+
+<section id="quiz-block" class="container">
+  <h1>Sports Quiz</h1>
+  <div id="quiz">
+  </div>
+  <button id="submitBtn">Submit Quiz</button>
+  <div id="result"></div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form action="#" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br>
+    <input type="submit" value="Submit">
+  </form>
+</section>
+
+<button id="startButton">Start</button>
+<div id="gameOverMessage">Game Over!</div>
+<canvas id="dino" width="800" height="400"></canvas>
+<table>
+  <caption>High Scores</caption>
+  <thead>
+  <tr>
+    <th>Rank</th>
+    <th>Score</th>
+  </tr>
+  </thead>
+  <tbody id="highScores"></tbody>
+</table>
+<table>
+  <caption>Lowest Scores</caption>
+  <thead>
+  <tr>
+    <th>Rank</th>
+    <th>Score</th>
+  </tr>
+  </thead>
+  <tbody id="lowScores"></tbody>
+</table>
+
+<footer>
+  <p>&copy; 2024 SportSphere. All rights reserved.</p>
+</footer>
+<script src="scripts/script.js"></script>
+<script src="scripts/game.js"></script>
+</body>
+</html>
